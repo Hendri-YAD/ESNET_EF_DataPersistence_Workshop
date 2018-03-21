@@ -40,7 +40,6 @@ namespace ESNET_EF_DataPersistence_Workshop
                 tb_rentalCost.Text = currMovie.RentalCost.ToString();
 
                 btn_update.Enabled = true;
-                btn_insert.Enabled = true;
                 btn_delete.Enabled = true;
             }
             else if(tb_videoCode.Text == "")
@@ -50,7 +49,6 @@ namespace ESNET_EF_DataPersistence_Workshop
                 tb_rentalCost.Text = "";
 
                 btn_update.Enabled = false;
-                btn_insert.Enabled = false;
                 btn_delete.Enabled = false;
 
             }

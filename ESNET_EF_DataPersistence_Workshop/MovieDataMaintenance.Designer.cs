@@ -153,7 +153,6 @@
             // 
             // btn_insert
             // 
-            this.btn_insert.Enabled = false;
             this.btn_insert.Location = new System.Drawing.Point(332, 307);
             this.btn_insert.Name = "btn_insert";
             this.btn_insert.Size = new System.Drawing.Size(66, 33);
