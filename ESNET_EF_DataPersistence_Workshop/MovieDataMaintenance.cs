@@ -29,6 +29,7 @@ namespace ESNET_EF_DataPersistence_Workshop
 
         private void btn_load_Click(object sender, EventArgs e)
         {
+            btn_delete.Enabled = true;
 
             if(tb_videoCode.Text != "")
             {
@@ -59,7 +60,9 @@ namespace ESNET_EF_DataPersistence_Workshop
         }
 
         private void btn_next_Click(object sender, EventArgs e)
-        {            
+        {
+            movieList = context.Movies.ToList();
+
             Movie current = context.Movies.
                 Where(x => x.VideoCode.ToString() == tb_videoCode.Text).First();
 
@@ -101,6 +104,9 @@ namespace ESNET_EF_DataPersistence_Workshop
 
         private void btn_first_Click(object sender, EventArgs e)
         {
+            btn_update.Enabled = true;
+            btn_delete.Enabled = true;
+
             Movie m = movieList.First();
 
             tb_videoCode.Text = m.VideoCode.ToString();
@@ -111,6 +117,11 @@ namespace ESNET_EF_DataPersistence_Workshop
 
         private void btn_end_Click(object sender, EventArgs e)
         {
+            btn_update.Enabled = true;
+            btn_delete.Enabled = true;
+
+            movieList = context.Movies.ToList();
+
             Movie m = movieList.Last();
 
             tb_videoCode.Text = m.VideoCode.ToString();
@@ -147,10 +158,20 @@ namespace ESNET_EF_DataPersistence_Workshop
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            Movie m = context.Movies.
+            Movie d = context.Movies.
                 Where(x => x.VideoCode.ToString() == tb_videoCode.Text).First();
 
-            context.Movies.Remove(m);
+            Movie current = context.Movies.
+                Where(x => x.VideoCode.ToString() == tb_videoCode.Text).First();
+            Movie m = movieList.TakeWhile(x => !x.Equals(current)).
+                Last();
+
+            tb_videoCode.Text = m.VideoCode.ToString();
+            tb_movieTitle.Text = m.MovieTitle;
+            tb_genre.Text = m.Genre;
+            tb_rentalCost.Text = m.RentalCost.ToString();
+
+            context.Movies.Remove(d);
 
             context.SaveChanges();
         }
