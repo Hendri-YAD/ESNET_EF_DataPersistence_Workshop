@@ -29,12 +29,34 @@ namespace ESNET_EF_DataPersistence_Workshop
 
         private void btn_load_Click(object sender, EventArgs e)
         {
-            currMovie = context.Movies.
-                Where(x => x.VideoCode.ToString() == tb_videoCode.Text).First();
 
-            tb_movieTitle.Text = currMovie.MovieTitle;
-            tb_genre.Text = currMovie.Genre;
-            tb_rentalCost.Text = currMovie.RentalCost.ToString();
+            if(tb_videoCode.Text != "")
+            {
+                currMovie = context.Movies.
+                    Where(x => x.VideoCode.ToString() == tb_videoCode.Text).First();
+
+                tb_movieTitle.Text = currMovie.MovieTitle;
+                tb_genre.Text = currMovie.Genre;
+                tb_rentalCost.Text = currMovie.RentalCost.ToString();
+
+                btn_update.Enabled = true;
+                btn_insert.Enabled = true;
+                btn_delete.Enabled = true;
+            }
+            else if(tb_videoCode.Text == "")
+            {
+                tb_movieTitle.Text = "";
+                tb_genre.Text = "";
+                tb_rentalCost.Text = "";
+
+                btn_update.Enabled = false;
+                btn_insert.Enabled = false;
+                btn_delete.Enabled = false;
+
+            }
+
+
+
 
         }
 
@@ -133,6 +155,18 @@ namespace ESNET_EF_DataPersistence_Workshop
             context.Movies.Remove(m);
 
             context.SaveChanges();
+        }
+
+        private void btn_find_Click(object sender, EventArgs e)
+        {
+            currMovie = context.Movies.
+                    Where(x => x.MovieTitle == tb_find.Text).First();
+
+            tb_videoCode.Text = currMovie.VideoCode.ToString();
+            tb_movieTitle.Text = tb_find.Text;
+            tb_genre.Text = currMovie.Genre;
+            tb_rentalCost.Text = currMovie.RentalCost.ToString();
+
         }
     }
 }

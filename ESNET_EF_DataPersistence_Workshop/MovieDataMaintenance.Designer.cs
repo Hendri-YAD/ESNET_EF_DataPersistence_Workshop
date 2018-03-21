@@ -44,8 +44,8 @@
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_first = new System.Windows.Forms.Button();
             this.btn_end = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.tb_find = new System.Windows.Forms.TextBox();
+            this.btn_find = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -142,6 +142,7 @@
             // 
             // btn_update
             // 
+            this.btn_update.Enabled = false;
             this.btn_update.Location = new System.Drawing.Point(230, 307);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(66, 33);
@@ -152,6 +153,7 @@
             // 
             // btn_insert
             // 
+            this.btn_insert.Enabled = false;
             this.btn_insert.Location = new System.Drawing.Point(332, 307);
             this.btn_insert.Name = "btn_insert";
             this.btn_insert.Size = new System.Drawing.Size(66, 33);
@@ -162,6 +164,7 @@
             // 
             // btn_delete
             // 
+            this.btn_delete.Enabled = false;
             this.btn_delete.Location = new System.Drawing.Point(434, 307);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(66, 33);
@@ -182,7 +185,7 @@
             // 
             // btn_first
             // 
-            this.btn_first.Location = new System.Drawing.Point(60, 376);
+            this.btn_first.Location = new System.Drawing.Point(60, 373);
             this.btn_first.Name = "btn_first";
             this.btn_first.Size = new System.Drawing.Size(47, 33);
             this.btn_first.TabIndex = 14;
@@ -192,7 +195,7 @@
             // 
             // btn_end
             // 
-            this.btn_end.Location = new System.Drawing.Point(545, 376);
+            this.btn_end.Location = new System.Drawing.Point(545, 374);
             this.btn_end.Name = "btn_end";
             this.btn_end.Size = new System.Drawing.Size(47, 33);
             this.btn_end.TabIndex = 15;
@@ -200,30 +203,31 @@
             this.btn_end.UseVisualStyleBackColor = true;
             this.btn_end.Click += new System.EventHandler(this.btn_end_Click);
             // 
-            // textBox5
+            // tb_find
             // 
-            this.textBox5.Location = new System.Drawing.Point(136, 376);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(282, 33);
-            this.textBox5.TabIndex = 16;
+            this.tb_find.Location = new System.Drawing.Point(136, 378);
+            this.tb_find.Multiline = true;
+            this.tb_find.Name = "tb_find";
+            this.tb_find.Size = new System.Drawing.Size(282, 22);
+            this.tb_find.TabIndex = 16;
             // 
-            // button9
+            // btn_find
             // 
-            this.button9.Location = new System.Drawing.Point(434, 376);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(66, 33);
-            this.button9.TabIndex = 17;
-            this.button9.Text = "Find";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btn_find.Location = new System.Drawing.Point(434, 373);
+            this.btn_find.Name = "btn_find";
+            this.btn_find.Size = new System.Drawing.Size(92, 33);
+            this.btn_find.TabIndex = 17;
+            this.btn_find.Text = "Find Movie";
+            this.btn_find.UseVisualStyleBackColor = true;
+            this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
             // MovieDataMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 501);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.btn_find);
+            this.Controls.Add(this.tb_find);
             this.Controls.Add(this.btn_end);
             this.Controls.Add(this.btn_first);
             this.Controls.Add(this.btn_next);
@@ -265,7 +269,7 @@
         private System.Windows.Forms.Button btn_next;
         private System.Windows.Forms.Button btn_first;
         private System.Windows.Forms.Button btn_end;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox tb_find;
+        private System.Windows.Forms.Button btn_find;
     }
 }
